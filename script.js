@@ -19,13 +19,17 @@ const setQuery = (e) => {
 
 
 }
+const x = (weather) => {
+    return weather.json()
+}
 const getResult = (cityName) => {
-    let query = `${url}weather?q=${cityName}&appid=${key}&units=metric&lang=tr`
+    let query = `${url}weather?q=${cityName}&appid=${key}&units=metric&lang=eng`
     fetch(query)
-        .then(weather => {
-            return weather.json()
-        })
+        .then(x
+        )
         .then(displayResult)
+
+    console.log(query)
 }
 
 const displayResult = (result) => {
@@ -51,3 +55,5 @@ const displayResult = (result) => {
 
 const searchBar = document.getElementById('searchBar')
 searchBar.addEventListener('keypress', setQuery)
+
+
